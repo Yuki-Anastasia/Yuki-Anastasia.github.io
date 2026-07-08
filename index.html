@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="color-scheme" content="light dark">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#" data-bind="site-title">Portfolio</a>
+        <div class="nav-links" data-nav-links></div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow" data-field="profile.location"></p>
+          <h1 id="hero-title" data-field="profile.name" data-fallback="Portfolio">Portfolio</h1>
+          <p class="hero-role" data-field="profile.role"></p>
+          <p class="hero-bio" data-field="profile.bio"></p>
+          <div class="hero-actions">
+            <a class="button primary" data-link="profile.resumeUrl" href="#" hidden>Resume</a>
+            <a class="button secondary" data-email="profile.email" href="#" hidden>Contact</a>
+          </div>
+        </div>
+        <div class="portrait-wrap" data-photo-wrap hidden>
+          <img class="portrait" data-photo alt="">
+        </div>
+      </section>
+
+      <section class="section" id="about" data-section="about" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>About Me</h2>
+        </div>
+        <p class="about-copy" data-field="profile.about"></p>
+      </section>
+
+      <section class="section" id="highlights" data-section="highlights" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Highlights</p>
+          <h2>Selected Achievements</h2>
+        </div>
+        <div class="feature-grid" data-list="highlights"></div>
+      </section>
+
+      <section class="section" id="projects" data-section="projects" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2>Work</h2>
+        </div>
+        <div class="project-grid" data-list="projects"></div>
+      </section>
+
+      <section class="section" id="blog" data-section="blog" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Blog</p>
+          <h2>Writing</h2>
+        </div>
+        <div class="blog-grid" data-list="blog"></div>
+      </section>
+
+      <section class="section" id="skills" data-section="skills" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Skills</p>
+          <h2>Capabilities</h2>
+        </div>
+        <ul class="tag-list" data-list="skills"></ul>
+      </section>
+
+      <section class="section timeline-section" id="experience" data-section="experience" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2>Timeline</h2>
+        </div>
+        <div class="timeline" data-list="experience"></div>
+      </section>
+
+      <section class="section timeline-section" id="education" data-section="education" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Education</p>
+          <h2>Learning</h2>
+        </div>
+        <div class="timeline" data-list="education"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-footer-title>Portfolio</p>
+      <div class="social-links" data-social-links></div>
+    </footer>
+  </body>
+</html>
+

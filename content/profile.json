@@ -1,0 +1,28 @@
+{
+  "site": {
+    "title": "Anastasia Yuki Mach",
+    "description": "",
+    "language": "en",
+    "accentColor": "#0f766e"
+  },
+  "profile": {
+    "name": "Anastasia Yuki Mach",
+    "role": "Student, Software/Hardware Engineering Learner",
+    "location": "United States - Japanese-American",
+    "bio": "Sup guys, welcome to my portfolio",
+    "about": "In progress...",
+    "photo": "",
+    "resumeUrl": "",
+    "email": "jiatengxing483@gmail.com",
+    "socials": []
+  },
+  "sections": {
+    "highlights": [],
+    "projects": [],
+    "blog": [],
+    "skills": [],
+    "experience": [],
+    "education": []
+  }
+}
+
