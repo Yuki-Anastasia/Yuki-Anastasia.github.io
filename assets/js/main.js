@@ -33,17 +33,21 @@ const renderEmptyState = (container) => {
 };
 
 const renderActions = (profile) => {
-  const resume = document.querySelector("[data-link='profile.resumeUrl']");
-  const contact = document.querySelector("[data-email='profile.email']");
+  const resumeLinks = document.querySelectorAll("[data-link='profile.resumeUrl']");
+  const contactLinks = document.querySelectorAll("[data-email='profile.email']");
 
-  if (resume && text(profile.resumeUrl)) {
-    resume.href = profile.resumeUrl;
-    resume.hidden = false;
+  if (text(profile.resumeUrl)) {
+    resumeLinks.forEach((resume) => {
+      resume.href = profile.resumeUrl;
+      resume.hidden = false;
+    });
   }
 
-  if (contact && text(profile.email)) {
-    contact.href = `mailto:${profile.email}`;
-    contact.hidden = false;
+  if (text(profile.email)) {
+    contactLinks.forEach((contact) => {
+      contact.href = `mailto:${profile.email}`;
+      contact.hidden = false;
+    });
   }
 };
 
@@ -92,12 +96,13 @@ const renderStats = (items, container) => {
 };
 
 const renderSocials = (socials) => {
-  const container = document.querySelector("[data-social-links]");
-  if (!container || !Array.isArray(socials)) return;
+  if (!Array.isArray(socials)) return;
 
-  socials.forEach((item) => {
-    const link = createLink(item.label, item.url);
-    if (link) container.appendChild(link);
+  document.querySelectorAll("[data-social-links]").forEach((container) => {
+    socials.forEach((item) => {
+      const link = createLink(item.label, item.url);
+      if (link) container.appendChild(link);
+    });
   });
 };
 
@@ -292,6 +297,46 @@ const render = (content) => {
     if (Array.isArray(items) && items.length > 0) section.hidden = false;
   });
 };
+
+const initContactToggle = () => {
+  const toggle = document.querySelector("[data-contact-toggle]");
+  const panel = document.querySelector("[data-contact-panel]");
+  if (!toggle || !panel) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    panel.classList.toggle("is-open", !isOpen);
+  });
+};
+
+const initPreloader = () => {
+  const preloader = document.querySelector("[data-preloader]");
+  if (!preloader) return;
+
+  const percentEl = preloader.querySelector("[data-preloader-percent]");
+  const fillEl = preloader.querySelector("[data-preloader-fill]");
+  let progress = 0;
+
+  const tick = () => {
+    progress = Math.min(100, progress + Math.random() * 18 + 6);
+    if (percentEl) percentEl.textContent = `${Math.floor(progress)}%`;
+    if (fillEl) fillEl.style.width = `${progress}%`;
+
+    if (progress >= 100) {
+      preloader.classList.add("is-done");
+      preloader.addEventListener("transitionend", () => preloader.remove(), { once: true });
+      return;
+    }
+
+    setTimeout(tick, 110);
+  };
+
+  tick();
+};
+
+initContactToggle();
+initPreloader();
 
 fetch(contentPath)
   .then((response) => {

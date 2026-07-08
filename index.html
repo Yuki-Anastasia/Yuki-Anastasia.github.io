@@ -13,6 +13,13 @@
     <script src="assets/js/main.js" defer></script>
   </head>
   <body>
+    <div class="preloader" data-preloader aria-hidden="true">
+      <p class="preloader-label">LOADING<span data-preloader-percent>0%</span></p>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill" data-preloader-fill></div>
+      </div>
+    </div>
+
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="landing-header">
@@ -61,6 +68,20 @@
           <h2 class="portal-title">Blog</h2>
           <p class="portal-sub">Notes &amp; writing</p>
         </a>
+      </section>
+
+      <section class="contact-bar-wrap" aria-label="Contact">
+        <button type="button" class="contact-bar" data-contact-toggle aria-expanded="false" aria-controls="contact-panel">
+          <span class="portal-index">04</span>
+          <span class="contact-bar-title">Contact</span>
+          <span class="contact-bar-icon" aria-hidden="true">&#9662;</span>
+        </button>
+        <div class="contact-panel" id="contact-panel" data-contact-panel>
+          <div class="contact-panel-inner">
+            <a class="button primary" data-email="profile.email" href="#" hidden>Email Me</a>
+            <div class="social-links" data-social-links></div>
+          </div>
+        </div>
       </section>
     </main>
 

@@ -247,6 +247,123 @@ h3 {
   transform: translate(4px, -4px);
 }
 
+/* Contact down-bar */
+
+.contact-bar-wrap {
+  margin-top: 1rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.contact-bar {
+  --portal-color: #7dff8a;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  border: 3px solid var(--portal-color);
+  background: #000000;
+  color: var(--portal-color);
+  padding: 1.1rem 1.5rem;
+  font-family: var(--font-body);
+  text-align: left;
+  transition: background-color 0.1s linear, color 0.1s linear;
+}
+
+.contact-bar:hover,
+.contact-bar:focus-visible {
+  background: var(--portal-color);
+  color: #000000;
+}
+
+.contact-bar-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.contact-bar-icon {
+  margin-left: auto;
+  font-size: 1.2rem;
+  color: inherit;
+  transition: transform 0.15s linear;
+}
+
+.contact-bar[aria-expanded="true"] .contact-bar-icon {
+  transform: rotate(180deg);
+}
+
+.contact-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  border: 0 solid #7dff8a;
+  border-width: 0 3px;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.contact-panel.is-open {
+  grid-template-rows: 1fr;
+  border-bottom-width: 3px;
+}
+
+.contact-panel-inner {
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 1.5rem;
+}
+
+.contact-panel.is-open .contact-panel-inner {
+  padding: 1.5rem;
+}
+
+/* Preloader */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  background: #000000;
+  transition: opacity 0.4s ease;
+}
+
+.preloader.is-done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preloader-label {
+  font-family: var(--font-display);
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  color: var(--ink);
+}
+
+.preloader-label [data-preloader-percent] {
+  color: var(--accent);
+  margin-left: 0.75rem;
+}
+
+.preloader-bar {
+  width: min(280px, 70vw);
+  height: 16px;
+  border: 2px solid var(--ink);
+  padding: 2px;
+}
+
+.preloader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+}
+
 /* Sub-page hero */
 
 .page-hero {

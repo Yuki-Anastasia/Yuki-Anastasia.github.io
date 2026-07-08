@@ -11,16 +11,17 @@
     "location": "United States - Japanese-American",
     "bio": "Sup guys, welcome to my portfolio",
     "about": "Hey, I'm Anastasia — a Japanese-American student who got curious about how things work, both in code and in circuits, and never really stopped. I split my time between software (mostly Python, C++, and JavaScript) and hardware (microcontrollers, sensors, and whatever I can solder together), and I like projects that make me learn both at once. This site is one of those projects — built from scratch as a way to practice, document what I'm learning, and give my work an actual home. Still very much a work in progress, just like me.",
-    "photo": "",
+    "photo": "assets/img/profile.jpg",
     "resumeUrl": "",
     "email": "jiatengxing483@gmail.com",
-    "socials": []
+    "socials": [
+      { "label": "Instagram", "url": "https://www.instagram.com/zauig84977?igsh=MW1zYjkyaDduc2dicw%3D%3D&utm_source=qr" }
+    ]
   },
   "sections": {
     "stats": [
-      { "label": "Role", "value": "Student, Software/Hardware Engineering Learner" },
-      { "label": "Origin", "value": "United States - Japanese-American" },
-      { "label": "Status", "value": "Leveling Up" }
+      { "label": "Born", "value": "2009" },
+      { "label": "School", "value": "APIS (Asia Pacific International School)" }
     ],
     "highlights": [
       {
