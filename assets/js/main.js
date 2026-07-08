@@ -47,6 +47,50 @@ const renderActions = (profile) => {
   }
 };
 
+const getInitials = (name) => {
+  const parts = text(name).split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "";
+  return parts.slice(0, 2).map((part) => part[0].toUpperCase()).join("");
+};
+
+const renderPortrait = (profile) => {
+  const img = document.querySelector("[data-photo]");
+  const placeholder = document.querySelector("[data-photo-placeholder]");
+  if (!img || !placeholder) return;
+
+  if (text(profile.photo)) {
+    img.src = profile.photo;
+    img.alt = text(profile.name) ? `${profile.name} portrait` : "Portrait";
+    img.hidden = false;
+    placeholder.hidden = true;
+    return;
+  }
+
+  const initials = document.querySelector("[data-initials]");
+  if (initials) initials.textContent = getInitials(profile.name) || "?";
+};
+
+const renderStats = (items, container) => {
+  if (items.length === 0) return renderEmptyState(container);
+
+  items.forEach((item) => {
+    if (!text(item.label) || !text(item.value)) return;
+    const row = document.createElement("div");
+    row.className = "stats-row";
+
+    const label = document.createElement("dt");
+    label.className = "stats-label";
+    label.textContent = item.label;
+
+    const value = document.createElement("dd");
+    value.className = "stats-value";
+    value.textContent = item.value;
+
+    row.append(label, value);
+    container.appendChild(row);
+  });
+};
+
 const renderSocials = (socials) => {
   const container = document.querySelector("[data-social-links]");
   if (!container || !Array.isArray(socials)) return;
@@ -220,6 +264,10 @@ const render = (content) => {
 
   renderActions(profile);
   renderSocials(profile.socials);
+  renderPortrait(profile);
+
+  const statsList = document.querySelector("[data-list='stats']");
+  if (statsList) renderStats(sections.stats || [], statsList);
 
   const highlightsList = document.querySelector("[data-list='highlights']");
   if (highlightsList) renderHighlights(sections.highlights || [], highlightsList);

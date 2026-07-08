@@ -26,8 +26,21 @@
     <main id="main">
       <section class="page-hero">
         <p class="eyebrow">About</p>
-        <h1>About Me</h1>
-        <p class="about-copy" data-field="profile.about"></p>
+      </section>
+
+      <section class="profile-block">
+        <div class="portrait-frame" data-photo-wrap>
+          <img data-photo alt="" hidden>
+          <div class="portrait-placeholder" data-photo-placeholder>
+            <span class="monogram" data-initials></span>
+            <span class="caption">Photo coming soon</span>
+          </div>
+        </div>
+        <div class="profile-info">
+          <h1 data-field="profile.name" data-fallback="About Me">About Me</h1>
+          <dl class="stats-table" data-list="stats"></dl>
+          <p class="about-copy" data-field="profile.about"></p>
+        </div>
       </section>
 
       <section class="section" id="highlights" data-section="highlights" hidden>

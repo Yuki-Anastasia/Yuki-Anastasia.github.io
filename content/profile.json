@@ -17,6 +17,10 @@
     "socials": []
   },
   "sections": {
+    "stats": [
+      { "label": "Role", "value": "Student, Software/Hardware Engineering Learner" },
+      { "label": "Origin", "value": "United States - Japanese-American" }
+    ],
     "highlights": [],
     "projects": [],
     "blog": [],
