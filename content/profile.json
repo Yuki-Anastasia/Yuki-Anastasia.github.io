@@ -1,16 +1,16 @@
 {
   "site": {
     "title": "Anastasia Yuki Mach",
-    "description": "",
+    "description": "Personal portfolio of Anastasia Yuki Mach, a student exploring software and hardware engineering.",
     "language": "en",
-    "accentColor": "#0f766e"
+    "accentColor": "#ff2a2a"
   },
   "profile": {
     "name": "Anastasia Yuki Mach",
     "role": "Student, Software/Hardware Engineering Learner",
     "location": "United States - Japanese-American",
     "bio": "Sup guys, welcome to my portfolio",
-    "about": "In progress...",
+    "about": "Hey, I'm Anastasia — a Japanese-American student who got curious about how things work, both in code and in circuits, and never really stopped. I split my time between software (mostly Python, C++, and JavaScript) and hardware (microcontrollers, sensors, and whatever I can solder together), and I like projects that make me learn both at once. This site is one of those projects — built from scratch as a way to practice, document what I'm learning, and give my work an actual home. Still very much a work in progress, just like me.",
     "photo": "",
     "resumeUrl": "",
     "email": "jiatengxing483@gmail.com",
@@ -19,14 +19,73 @@
   "sections": {
     "stats": [
       { "label": "Role", "value": "Student, Software/Hardware Engineering Learner" },
-      { "label": "Origin", "value": "United States - Japanese-American" }
+      { "label": "Origin", "value": "United States - Japanese-American" },
+      { "label": "Status", "value": "Leveling Up" }
     ],
-    "highlights": [],
-    "projects": [],
-    "blog": [],
-    "skills": [],
-    "experience": [],
-    "education": []
+    "highlights": [
+      {
+        "title": "Built This Portfolio",
+        "description": "Designed and coded this entire site from scratch — layout, content system, and all — as a hands-on way to practice front-end development."
+      },
+      {
+        "title": "Started My Engineering Journey",
+        "description": "Began learning software and hardware engineering side by side, treating every small project as a chance to pick up something new."
+      }
+    ],
+    "projects": [
+      {
+        "title": "Personal Portfolio Website",
+        "description": "This very site — a JSON-driven, multi-page portfolio built with plain HTML, CSS, and JavaScript, and deployed on GitHub Pages.",
+        "technologies": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+        "liveUrl": "https://yuki-anastasia.github.io/",
+        "sourceUrl": "https://github.com/Yuki-Anastasia/Yuki-Anastasia.github.io"
+      },
+      {
+        "title": "Hardware Tinkering Log",
+        "description": "An ongoing collection of small electronics experiments — microcontrollers, sensors, and circuits — as I learn hardware engineering hands-on.",
+        "technologies": ["Arduino", "Raspberry Pi", "Soldering"]
+      },
+      {
+        "title": "Code Practice Playground",
+        "description": "Small scripts and exercises exploring different languages and problem-solving approaches while building core programming skills.",
+        "technologies": ["Python", "C++", "Git"]
+      }
+    ],
+    "blog": [
+      {
+        "date": "July 9, 2026",
+        "title": "Welcome To My Blog",
+        "excerpt": "Kicking off my dev and hardware learning log — here's what to expect.",
+        "url": "blog/welcome-to-my-blog.html"
+      }
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "JavaScript",
+      "HTML & CSS",
+      "Arduino",
+      "Raspberry Pi",
+      "Circuit Design",
+      "Git & GitHub",
+      "Linux",
+      "3D Printing"
+    ],
+    "experience": [
+      {
+        "date": "Present",
+        "title": "Independent Learner",
+        "organization": "Self-Directed Study",
+        "description": "Studying software and hardware engineering fundamentals through online courses, personal projects, and hands-on experimentation."
+      }
+    ],
+    "education": [
+      {
+        "date": "Present",
+        "title": "Software & Hardware Engineering Fundamentals",
+        "organization": "Self-Directed / Online Coursework",
+        "description": "Building a foundation across programming, computer systems, and embedded electronics."
+      }
+    ]
   }
 }
-
