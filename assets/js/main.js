@@ -23,38 +23,25 @@ const createLink = (label, href) => {
   return link;
 };
 
-const SECTION_LABELS = {
-  about: "About",
-  highlights: "Highlights",
-  projects: "Projects",
-  blog: "Blog",
-  skills: "Skills",
-  experience: "Experience",
-  education: "Education"
-};
-
-const renderNav = (visibility) => {
-  const nav = document.querySelector("[data-nav-links]");
-
-  Object.entries(SECTION_LABELS).forEach(([id, label]) => {
-    if (!visibility[id]) return;
-    const link = document.createElement("a");
-    link.href = `#${id}`;
-    link.textContent = label;
-    nav.appendChild(link);
-  });
+const renderEmptyState = (container) => {
+  const message = container.dataset.empty;
+  if (!message) return;
+  const empty = document.createElement("p");
+  empty.className = "empty-state";
+  empty.textContent = message;
+  container.appendChild(empty);
 };
 
 const renderActions = (profile) => {
   const resume = document.querySelector("[data-link='profile.resumeUrl']");
   const contact = document.querySelector("[data-email='profile.email']");
 
-  if (text(profile.resumeUrl)) {
+  if (resume && text(profile.resumeUrl)) {
     resume.href = profile.resumeUrl;
     resume.hidden = false;
   }
 
-  if (text(profile.email)) {
+  if (contact && text(profile.email)) {
     contact.href = `mailto:${profile.email}`;
     contact.hidden = false;
   }
@@ -62,7 +49,7 @@ const renderActions = (profile) => {
 
 const renderSocials = (socials) => {
   const container = document.querySelector("[data-social-links]");
-  if (!Array.isArray(socials)) return;
+  if (!container || !Array.isArray(socials)) return;
 
   socials.forEach((item) => {
     const link = createLink(item.label, item.url);
@@ -70,18 +57,9 @@ const renderSocials = (socials) => {
   });
 };
 
-const renderPhoto = (profile) => {
-  const photo = document.querySelector("[data-photo]");
-  const wrap = document.querySelector("[data-photo-wrap]");
-  if (!text(profile.photo)) return;
+const renderHighlights = (items, container) => {
+  if (items.length === 0) return renderEmptyState(container);
 
-  photo.src = profile.photo;
-  photo.alt = text(profile.name) ? `${profile.name} portrait` : "Portfolio portrait";
-  wrap.hidden = false;
-};
-
-const renderHighlights = (items) => {
-  const container = document.querySelector("[data-list='highlights']");
   items.forEach((item) => {
     const card = document.createElement("article");
     card.className = "card";
@@ -100,8 +78,9 @@ const renderHighlights = (items) => {
   });
 };
 
-const renderProjects = (items) => {
-  const container = document.querySelector("[data-list='projects']");
+const renderProjects = (items, container) => {
+  if (items.length === 0) return renderEmptyState(container);
+
   items.forEach((item) => {
     const card = document.createElement("article");
     card.className = "card";
@@ -138,8 +117,9 @@ const renderProjects = (items) => {
   });
 };
 
-const renderBlog = (items) => {
-  const container = document.querySelector("[data-list='blog']");
+const renderBlog = (items, container) => {
+  if (items.length === 0) return renderEmptyState(container);
+
   items.forEach((item) => {
     const card = document.createElement("article");
     card.className = "card";
@@ -173,8 +153,9 @@ const renderBlog = (items) => {
   });
 };
 
-const renderSkills = (items) => {
-  const container = document.querySelector("[data-list='skills']");
+const renderSkills = (items, container) => {
+  if (items.length === 0) return renderEmptyState(container);
+
   items.map(text).filter(Boolean).forEach((skill) => {
     const item = document.createElement("li");
     item.textContent = skill;
@@ -182,8 +163,9 @@ const renderSkills = (items) => {
   });
 };
 
-const renderTimeline = (listName, items) => {
-  const container = document.querySelector(`[data-list='${listName}']`);
+const renderTimeline = (container, items) => {
+  if (items.length === 0) return renderEmptyState(container);
+
   items.forEach((item) => {
     const row = document.createElement("article");
     row.className = "timeline-item";
@@ -222,7 +204,10 @@ const render = (content) => {
 
   document.documentElement.lang = text(content.site?.language) || "en";
   document.title = siteTitle;
-  document.querySelector("meta[name='description']").setAttribute("content", description);
+
+  const metaDescription = document.querySelector("meta[name='description']");
+  if (metaDescription) metaDescription.setAttribute("content", description);
+
   document.documentElement.style.setProperty("--accent", text(content.site?.accentColor) || "#0f766e");
 
   document.querySelectorAll("[data-bind='site-title'], [data-footer-title]").forEach((element) => {
@@ -235,32 +220,28 @@ const render = (content) => {
 
   renderActions(profile);
   renderSocials(profile.socials);
-  renderPhoto(profile);
 
-  if (Array.isArray(sections.highlights)) renderHighlights(sections.highlights);
-  if (Array.isArray(sections.projects)) renderProjects(sections.projects);
-  if (Array.isArray(sections.blog)) renderBlog(sections.blog);
-  if (Array.isArray(sections.skills)) renderSkills(sections.skills);
-  if (Array.isArray(sections.experience)) renderTimeline("experience", sections.experience);
-  if (Array.isArray(sections.education)) renderTimeline("education", sections.education);
+  const highlightsList = document.querySelector("[data-list='highlights']");
+  if (highlightsList) renderHighlights(sections.highlights || [], highlightsList);
 
-  const hasItems = (list) => Array.isArray(list) && list.length > 0;
-  const visibility = {
-    about: Boolean(text(profile.about)),
-    highlights: hasItems(sections.highlights),
-    projects: hasItems(sections.projects),
-    blog: hasItems(sections.blog),
-    skills: hasItems(sections.skills),
-    experience: hasItems(sections.experience),
-    education: hasItems(sections.education)
-  };
+  const projectsList = document.querySelector("[data-list='projects']");
+  if (projectsList) renderProjects(sections.projects || [], projectsList);
 
-  renderNav(visibility);
+  const blogList = document.querySelector("[data-list='blog']");
+  if (blogList) renderBlog(sections.blog || [], blogList);
 
-  Object.entries(visibility).forEach(([name, visible]) => {
-    if (!visible) return;
-    const section = document.querySelector(`[data-section='${name}']`);
-    if (section) section.hidden = false;
+  const skillsList = document.querySelector("[data-list='skills']");
+  if (skillsList) renderSkills(sections.skills || [], skillsList);
+
+  const experienceList = document.querySelector("[data-list='experience']");
+  if (experienceList) renderTimeline(experienceList, sections.experience || []);
+
+  const educationList = document.querySelector("[data-list='education']");
+  if (educationList) renderTimeline(educationList, sections.education || []);
+
+  document.querySelectorAll("[data-section]").forEach((section) => {
+    const items = sections[section.dataset.section];
+    if (Array.isArray(items) && items.length > 0) section.hidden = false;
   });
 };
 

@@ -4,28 +4,38 @@ Static portfolio website for GitHub Pages.
 
 ## Structure
 
-- `index.html` - single-page portfolio shell (home, about, highlights, projects, blog, skills, experience, education).
-- `assets/css/styles.css` - responsive visual styling.
-- `assets/js/main.js` - renders portfolio content from JSON.
+A dark, portal-driven layout inspired by teamlab.art: the homepage is a landing
+screen with a name/role/bio and three large "portal" tiles that link out to
+dedicated pages, instead of one long scrolling page.
+
+- `index.html` - landing page: hero (name, role, location, bio) + portal grid
+  linking to About, Projects, and Blog.
+- `about.html` - About Me copy, highlights, skills, experience, education.
+- `projects.html` - project cards with tech tags and live/source links.
+- `blog.html` - post cards with date, excerpt, and a link to the full post.
+- `assets/css/styles.css` - shared dark theme, portal grid, and page styling.
+- `assets/js/main.js` - renders whichever section exists on the current page
+  from JSON (each page only renders the elements present in its own HTML).
 - `assets/img/` - images, portraits, project screenshots, and icons.
 - `content/profile.json` - real portfolio content goes here.
 - `blog/template.html` - starter template for a local blog post page; copy it per post and link to it from `sections.blog[].url` in `profile.json`.
 - `.nojekyll` - keeps GitHub Pages from processing this as a Jekyll site.
 
-## Sections
+## Pages & sections
 
-The page is a single scroll with anchor navigation. Each section is hidden until
-its content in `content/profile.json` is non-empty:
+Content is hidden until it's filled in in `content/profile.json`:
 
-- `#home` - hero: name, role, location, short bio, resume/contact buttons.
-- `#about` - longer "About Me" copy (`profile.about`).
-- `#highlights` - selected achievements (`sections.highlights`).
-- `#projects` - project cards with tech tags and live/source links (`sections.projects`).
-- `#blog` - post cards with date, excerpt, and a link to the full post (`sections.blog`).
-  The `url` field can point to an external post (Medium, dev.to, etc.) or a local
-  page you add, e.g. `blog/my-post.html`.
-- `#skills` - tag list (`sections.skills`).
-- `#experience` / `#education` - timelines (`sections.experience`, `sections.education`).
+- **Home** (`index.html`) - hero always shows; the About/Projects/Blog portal
+  tiles are always visible since they're the primary navigation.
+- **About** (`about.html`) - `profile.about` always shows (even as a short
+  placeholder); Highlights, Skills, Experience, and Education each stay
+  hidden until their array in `sections` has at least one item.
+- **Projects** (`projects.html`) - renders `sections.projects` as cards; shows
+  a "coming soon" message in the grid when the array is empty.
+- **Blog** (`blog.html`) - renders `sections.blog` as cards; shows a "coming
+  soon" message when empty. The `url` field on each post can point to an
+  external post (Medium, dev.to, etc.) or a local page you add, e.g.
+  `blog/my-post.html`.
 
 ## Content Needed
 

@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="color-scheme" content="dark">
-    <title>Post Title</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Blog</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/main.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="page-header">
       <nav class="nav" aria-label="Primary">
-        <a class="brand" href="../index.html">Portfolio</a>
+        <a class="brand" href="index.html" data-bind="site-title">Portfolio</a>
         <div class="page-nav">
-          <a href="../about.html">About</a>
-          <a href="../projects.html">Projects</a>
-          <a href="../blog.html" aria-current="page">Blog</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="blog.html" aria-current="page">Blog</a>
         </div>
       </nav>
     </header>
@@ -25,20 +26,15 @@
     <main id="main">
       <section class="page-hero">
         <p class="eyebrow">Blog</p>
-        <h1>Post Title</h1>
-        <p class="blog-date">Month DD, YYYY</p>
+        <h1>Writing</h1>
       </section>
 
-      <article class="about-copy">
-        <p>Write the post content here.</p>
-      </article>
+      <div class="blog-grid" data-list="blog" data-empty="New posts are on their way — check back soon."></div>
     </main>
 
     <footer class="site-footer">
-      <p>Portfolio</p>
-      <div class="social-links">
-        <a href="../blog.html">Back to Blog</a>
-      </div>
+      <p data-footer-title>Portfolio</p>
+      <div class="social-links" data-social-links></div>
     </footer>
   </body>
 </html>
