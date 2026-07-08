@@ -23,11 +23,20 @@
     </header>
 
     <main id="main">
-      <section class="hero-mark" aria-labelledby="hero-title">
-        <p class="eyebrow" data-field="profile.location"></p>
-        <h1 id="hero-title" data-field="profile.name" data-fallback="Portfolio">Portfolio</h1>
-        <p class="hero-role" data-field="profile.role"></p>
-        <p class="hero-bio" data-field="profile.bio"></p>
+      <section class="profile-block profile-block-home" aria-labelledby="hero-title">
+        <div class="portrait-frame" data-photo-wrap>
+          <img data-photo alt="" hidden>
+          <div class="portrait-placeholder" data-photo-placeholder>
+            <span class="monogram" data-initials></span>
+            <span class="caption">Photo coming soon</span>
+          </div>
+        </div>
+        <div class="profile-info">
+          <p class="eyebrow">Portfolio</p>
+          <h1 id="hero-title" data-field="profile.name" data-fallback="Portfolio">Portfolio</h1>
+          <dl class="stats-table" data-list="stats"></dl>
+          <p class="hero-bio" data-field="profile.bio"></p>
+        </div>
       </section>
 
       <section class="portal-grid" aria-label="Explore">
