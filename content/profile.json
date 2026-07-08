@@ -54,6 +54,7 @@
         "technologies": ["Python", "C++", "Git"]
       }
     ],
+    "gallery": [],
     "blog": [
       {
         "date": "July 9, 2026",
@@ -65,14 +66,10 @@
     "skills": [
       "Python",
       "C++",
-      "JavaScript",
-      "HTML & CSS",
-      "Arduino",
       "Raspberry Pi",
       "Circuit Design",
       "Git & GitHub",
-      "Linux",
-      "3D Printing"
+      "FPGA"
     ],
     "experience": [
       {

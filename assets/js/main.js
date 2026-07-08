@@ -198,6 +198,29 @@ const renderBlog = (items, container) => {
   });
 };
 
+const renderGallery = (items, container) => {
+  if (items.length === 0) return renderEmptyState(container);
+
+  items.forEach((item) => {
+    if (!text(item.image)) return;
+    const figure = document.createElement("figure");
+    figure.className = "gallery-item";
+
+    const img = document.createElement("img");
+    img.src = item.image;
+    img.alt = text(item.title) || "";
+    figure.appendChild(img);
+
+    if (text(item.title)) {
+      const caption = document.createElement("figcaption");
+      caption.textContent = item.title;
+      figure.appendChild(caption);
+    }
+
+    container.appendChild(figure);
+  });
+};
+
 const renderSkills = (items, container) => {
   if (items.length === 0) return renderEmptyState(container);
 
@@ -278,6 +301,9 @@ const render = (content) => {
 
   const blogList = document.querySelector("[data-list='blog']");
   if (blogList) renderBlog(sections.blog || [], blogList);
+
+  const galleryList = document.querySelector("[data-list='gallery']");
+  if (galleryList) renderGallery(sections.gallery || [], galleryList);
 
   const skillsList = document.querySelector("[data-list='skills']");
   if (skillsList) renderSkills(sections.skills || [], skillsList);
