@@ -21,7 +21,9 @@
   "sections": {
     "stats": [
       { "label": "Born", "value": "2009" },
-      { "label": "School", "value": "APIS (Asia Pacific International School)" }
+      { "label": "School", "value": "APIS (Asia Pacific International School)" },
+      { "label": "Email", "value": "jiatengxing483@gmail.com", "url": "mailto:jiatengxing483@gmail.com" },
+      { "label": "Instagram", "value": "@zauig84977", "url": "https://www.instagram.com/zauig84977?igsh=MW1zYjkyaDduc2dicw%3D%3D&utm_source=qr" }
     ],
     "highlights": [
       {

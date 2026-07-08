@@ -33,22 +33,12 @@ const renderEmptyState = (container) => {
 };
 
 const renderActions = (profile) => {
-  const resumeLinks = document.querySelectorAll("[data-link='profile.resumeUrl']");
-  const contactLinks = document.querySelectorAll("[data-email='profile.email']");
+  if (!text(profile.resumeUrl)) return;
 
-  if (text(profile.resumeUrl)) {
-    resumeLinks.forEach((resume) => {
-      resume.href = profile.resumeUrl;
-      resume.hidden = false;
-    });
-  }
-
-  if (text(profile.email)) {
-    contactLinks.forEach((contact) => {
-      contact.href = `mailto:${profile.email}`;
-      contact.hidden = false;
-    });
-  }
+  document.querySelectorAll("[data-link='profile.resumeUrl']").forEach((resume) => {
+    resume.href = profile.resumeUrl;
+    resume.hidden = false;
+  });
 };
 
 const getInitials = (name) => {
@@ -88,7 +78,13 @@ const renderStats = (items, container) => {
 
     const value = document.createElement("dd");
     value.className = "stats-value";
-    value.textContent = item.value;
+
+    const link = createLink(item.value, item.url);
+    if (link) {
+      value.appendChild(link);
+    } else {
+      value.textContent = item.value;
+    }
 
     row.append(label, value);
     container.appendChild(row);
@@ -298,18 +294,6 @@ const render = (content) => {
   });
 };
 
-const initContactToggle = () => {
-  const toggle = document.querySelector("[data-contact-toggle]");
-  const panel = document.querySelector("[data-contact-panel]");
-  if (!toggle || !panel) return;
-
-  toggle.addEventListener("click", () => {
-    const isOpen = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!isOpen));
-    panel.classList.toggle("is-open", !isOpen);
-  });
-};
-
 const initPreloader = () => {
   const preloader = document.querySelector("[data-preloader]");
   if (!preloader) return;
@@ -335,7 +319,6 @@ const initPreloader = () => {
   tick();
 };
 
-initContactToggle();
 initPreloader();
 
 fetch(contentPath)
