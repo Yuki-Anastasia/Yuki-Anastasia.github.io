@@ -1,0 +1,78 @@
+# This is your one file for editing all the text on your portfolio.
+# Edit anything after a colon (:). Don't delete the field names or the
+# === SECTION === headers — the "Update My Info" script looks for them.
+# Lines starting with # (like this one) are just notes and are ignored.
+#
+# When you're done editing, double-click "Update My Info.bat" to apply
+# your changes, then commit + push (or ask Claude) to publish them.
+
+NAME: Anastasia Yuki Mach
+ROLE: Student, Software/Hardware Engineering Learner
+LOCATION: United States - Japanese-American
+SHORT BIO: Sup guys, welcome to my portfolio
+ABOUT ME: Hey, I'm Anastasia — a Japanese-American student who got curious about how things work, both in code and in circuits, and never really stopped. I split my time between software (mostly Python, C++, and JavaScript) and hardware (microcontrollers, sensors, and whatever I can solder together), and I like projects that make me learn both at once. This site is one of those projects — built from scratch as a way to practice, document what I'm learning, and give my work an actual home. Still very much a work in progress, just like me.
+EMAIL: jiatengxing483@gmail.com
+RESUME URL:
+INSTAGRAM: https://www.instagram.com/zauig84977?igsh=MW1zYjkyaDduc2dicw%3D%3D&utm_source=qr
+
+=== STATS ===
+# Short facts shown on the homepage. Add or remove blocks (separated by a
+# blank line) as you like. URL is optional.
+LABEL: Born
+VALUE: 2009
+
+LABEL: School
+VALUE: APIS (Asia Pacific International School)
+
+LABEL: Email
+VALUE: jiatengxing483@gmail.com
+URL: mailto:jiatengxing483@gmail.com
+
+LABEL: Instagram
+VALUE: @zauig84977
+URL: https://www.instagram.com/zauig84977?igsh=MW1zYjkyaDduc2dicw%3D%3D&utm_source=qr
+
+=== SKILLS ===
+# One skill per line.
+Python
+C++
+Raspberry Pi
+Circuit Design
+Git & GitHub
+FPGA
+
+=== HIGHLIGHTS ===
+# Shown on the About page. Add or remove blocks as you like.
+TITLE: Built This Portfolio
+DESCRIPTION: Designed and coded this entire site from scratch — layout, content system, and all — as a hands-on way to practice front-end development.
+
+TITLE: Started My Engineering Journey
+DESCRIPTION: Began learning software and hardware engineering side by side, treating every small project as a chance to pick up something new.
+
+=== PROJECTS ===
+# TECHNOLOGIES is a comma-separated list. LIVE URL and SOURCE URL are optional.
+TITLE: Personal Portfolio Website
+DESCRIPTION: This very site — a JSON-driven, multi-page portfolio built with plain HTML, CSS, and JavaScript, and deployed on GitHub Pages.
+TECHNOLOGIES: HTML, CSS, JavaScript, GitHub Pages
+LIVE URL: https://yuki-anastasia.github.io/
+SOURCE URL: https://github.com/Yuki-Anastasia/Yuki-Anastasia.github.io
+
+TITLE: Hardware Tinkering Log
+DESCRIPTION: An ongoing collection of small electronics experiments — microcontrollers, sensors, and circuits — as I learn hardware engineering hands-on.
+TECHNOLOGIES: Arduino, Raspberry Pi, Soldering
+
+TITLE: Code Practice Playground
+DESCRIPTION: Small scripts and exercises exploring different languages and problem-solving approaches while building core programming skills.
+TECHNOLOGIES: Python, C++, Git
+
+=== EXPERIENCE ===
+DATE: Present
+TITLE: Independent Learner
+ORGANIZATION: Self-Directed Study
+DESCRIPTION: Studying software and hardware engineering fundamentals through online courses, personal projects, and hands-on experimentation.
+
+=== EDUCATION ===
+DATE: Present
+TITLE: Software & Hardware Engineering Fundamentals
+ORGANIZATION: Self-Directed / Online Coursework
+DESCRIPTION: Building a foundation across programming, computer systems, and embedded electronics.

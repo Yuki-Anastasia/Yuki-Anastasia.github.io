@@ -17,16 +17,23 @@ dedicated pages, instead of one long scrolling page.
 - `assets/js/main.js` - renders whichever section exists on the current page
   from JSON (each page only renders the elements present in its own HTML).
 - `assets/img/` - images, portraits, project screenshots, and icons.
-- `content/profile.json` - real portfolio content goes here.
+- `content/profile.json` - real portfolio content goes here (generated from
+  `content/my-info.txt` for most fields; edit that instead — see below).
 - `blog/template.html` - starter template for a local blog post page; copy it per post and link to it from `sections.blog[].url` in `profile.json`.
 - `gallery.html` - photo grid, driven by `sections.gallery` in `profile.json`.
 - `.nojekyll` - keeps GitHub Pages from processing this as a Jekyll site.
 
-## Adding photos and blog posts (no editing JSON by hand)
+## Editing content (no editing JSON by hand)
 
-Two scripts handle the busywork of adding content — copying files into place,
-writing the `profile.json` entry, and (for posts) generating the page.
+Three scripts handle the busywork of updating content, so you never have to
+hand-edit `content/profile.json` (one stray comma there can break the whole
+site).
 
+- **Edit your bio, stats, skills, highlights, projects, experience, or
+  education**: open `content/my-info.txt` — a single plain-text file with
+  everything about you — make your changes, save it, then double-click
+  `Update My Info.bat` (or run `python scripts/apply_info.py`). It rewrites
+  `content/profile.json` to match.
 - **Add a photo to the Gallery**: double-click `Add Photo.bat` (or run
   `python scripts/add_photo.py`). It asks for the image path and an optional
   caption, copies the photo into `assets/img/gallery/`, and adds it to the
